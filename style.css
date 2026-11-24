@@ -1,39 +1,250 @@
+/* ==================================================
+   GLOBAL SETTINGS
+================================================== */
+
+:root {
+    --primary: #6c63ff;
+    --secondary: #8b5cf6;
+    --dark: #111827;
+    --text: #4b5563;
+    --light: #f8fafc;
+    --white: #ffffff;
+    --border: #e5e7eb;
+    --shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+    --transition: 0.3s ease;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
 
 body {
-    background-color: #f0f4f8;
-    font-family: Arial, sans-serif;
-    margin: 40px;
+    font-family: "Poppins", sans-serif;
+    color: var(--text);
+    background: var(--white);
+    line-height: 1.7;
+    transition: background 0.3s ease, color 0.3s ease;
 }
 
-h1 {
-    color: darkgreen;
-    font-size: 36px;
-}
-
-h2 {
-    color: #333333;
-}
-
-p {
-    color: #555555;
-    font-size: 18px;
-}
-
-h1 {
-    text-align: center;
-    padding: 20px;
-}
-
-h2 {
-    border-bottom: 2px solid darkgreen;
-    padding-bottom: 8px;
-    margin-top: 30px;
+a {
+    text-decoration: none;
+    color: inherit;
 }
 
 ul {
-    line-height: 2;
+    list-style: none;
 }
 
-p {
-    line-height: 1.7;
+button,
+input,
+textarea {
+    font-family: inherit;
 }
+
+
+/* ==================================================
+   NAVBAR
+================================================== */
+
+.header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 1000;
+    background: rgba(255, 255, 255, 0.92);
+    backdrop-filter: blur(12px);
+    border-bottom: 1px solid var(--border);
+}
+
+.navbar {
+    width: 90%;
+    max-width: 1200px;
+    margin: auto;
+
+    min-height: 70px;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.logo {
+    font-size: 1.7rem;
+    font-weight: 700;
+    color: var(--dark);
+}
+
+.logo span {
+    color: var(--primary);
+}
+
+.nav-links {
+    display: flex;
+    gap: 28px;
+    align-items: center;
+}
+
+.nav-links a {
+    font-size: 0.95rem;
+    font-weight: 500;
+    color: var(--dark);
+    position: relative;
+    transition: var(--transition);
+}
+
+.nav-links a:hover {
+    color: var(--primary);
+}
+
+.nav-links a::after {
+    content: "";
+    position: absolute;
+    width: 0;
+    height: 2px;
+    left: 0;
+    bottom: -6px;
+    background: var(--primary);
+    transition: var(--transition);
+}
+
+.nav-links a:hover::after {
+    width: 100%;
+}
+
+.menu-btn {
+    display: none;
+    border: none;
+    background: transparent;
+    font-size: 1.7rem;
+    cursor: pointer;
+}
+
+.theme-btn {
+    width: 42px;
+    height: 42px;
+    border: 1px solid var(--border);
+    border-radius: 50%;
+    background: var(--white);
+    cursor: pointer;
+    font-size: 1rem;
+    transition: var(--transition);
+}
+
+.theme-btn:hover {
+    transform: rotate(20deg);
+}
+
+
+/* ==================================================
+   COMMON SECTION
+================================================== */
+
+.section {
+    width: 90%;
+    max-width: 1200px;
+    margin: auto;
+    padding: 100px 0;
+}
+
+.section-heading {
+    text-align: center;
+    max-width: 700px;
+    margin: 0 auto 55px;
+}
+
+.section-label {
+    color: var(--primary);
+    font-size: 0.9rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    margin-bottom: 8px;
+}
+
+.section-heading h2 {
+    font-size: 2.2rem;
+    color: var(--dark);
+    line-height: 1.3;
+}
+
+.section-heading > p:last-child {
+    margin-top: 12px;
+}
+
+
+/* ==================================================
+   BUTTONS
+================================================== */
+
+.btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+
+    padding: 12px 24px;
+
+    border-radius: 8px;
+
+    font-size: 0.95rem;
+    font-weight: 600;
+
+    cursor: pointer;
+
+    transition: transform var(--transition),
+                box-shadow var(--transition),
+                background var(--transition);
+}
+
+.primary-btn {
+    color: var(--white);
+    background: linear-gradient(
+        135deg,
+        var(--primary),
+        var(--secondary)
+    );
+    border: none;
+}
+
+.primary-btn:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 10px 25px rgba(108, 99, 255, 0.3);
+}
+
+.secondary-btn {
+    color: var(--primary);
+    background: transparent;
+    border: 1px solid var(--primary);
+}
+
+.secondary-btn:hover {
+    color: var(--white);
+    background: var(--primary);
+    transform: translateY(-3px);
+}
+
+
+/* ==================================================
+   HERO SECTION
+================================================== */
+
+.hero {
+    width: 90%;
+    max-width: 1200px;
+
+    min-height: 100vh;
+
+    margin: auto;
+    padding-top: 130px;
+
+    display: grid;
+    grid-template-columns: 1.3fr 0.7fr;
+
+    align-items: center;
+    gap: 60px
